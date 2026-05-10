@@ -1,3 +1,6 @@
+## Author
+[LinkedIn](https://linkedin.com/in/yourprofilehere)
+
 [README.md](https://github.com/user-attachments/files/27574378/README.md)
 
 # LLM Prompt Injection Benchmarking
