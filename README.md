@@ -1,7 +1,4 @@
-## Author
-[LinkedIn]([https:(//www.linkedin.com/in/lakshmanh/)]
 
-[README.md](https://github.com/user-attachments/files/27574378/README.md)
 
 # LLM Prompt Injection Benchmarking
 
@@ -9,7 +6,7 @@ Empirical testing of prompt injection resistance across local and cloud LLM depl
 
 ## Overview
 
-This repository documents a series of prompt injection exercises run against three model configurations — a local open-weight model, and two commercial API-based models. The goal is to compare injection resistance in practice, not in theory, and to build a reproducible test harness that can be extended as new attack techniques are explored.
+This repository documents a series of prompt injection exercises run against three model configurations: a local open-weight model, and two commercial API-based models. The goal is to compare injection resistance in practice, not in theory, and to build a reproducible test harness that can be extended as new attack techniques are explored.
 
 This work maps to **OWASP LLM Top 10 — LLM01: Prompt Injection**, currently the most prevalent attack vector against LLM-based systems.
 
@@ -63,15 +60,15 @@ any circumstances.
 
 **1. Awareness without refusal is not a control**
 
-Llama3 acknowledged the injection attempt in its response — flagging it as a simulated maintenance mode scenario — before complying and leaking the protected value anyway. A model that detects an attack but proceeds regardless offers no meaningful protection.
+Llama3 acknowledged the injection attempt in its response, flagging it as a simulated maintenance mode scenario — before complying and leaking the protected value anyway. A model that detects an attack but proceeds regardless offers no meaningful protection.
 
-**2. The resistance gap is not architectural — it is a product of safety fine-tuning**
+**2. The resistance gap is not architectural, it is a product of safety fine-tuning**
 
-All three models are transformer-based LLMs with broadly similar architectures. The difference in injection resistance comes almost entirely from Reinforcement Learning from Human Feedback (RLHF) and safety-specific fine-tuning applied during post-training. This has direct implications for organisations deploying open-weight models for cost or data residency reasons — the risk profile is materially different and requires compensating controls at the application layer.
+All three models are transformer-based LLMs with broadly similar architectures. The difference in injection resistance comes almost entirely from Reinforcement Learning from Human Feedback (RLHF) and safety specific fine tuning applied during post-training. This has direct implications for organisations deploying open-weight models for cost or data residency reasons: the risk profile is materially different and requires compensating controls at the application layer.
 
 **3. Commercial models differ in refusal transparency**
 
-Both Claude and GPT-4o refused all injection attempts, but their approach differed. Claude provided detailed reasoning with each refusal, explicitly naming the technique being attempted. GPT-4o refused with significantly less explanation. Same security outcome, different explainability posture — relevant for AI governance and audit requirements.
+Both Claude and GPT-4o refused all injection attempts, but their approach differed. Claude provided detailed reasoning with each refusal, explicitly naming the technique being attempted. GPT-4o refused with significantly less explanation. Same security outcome, different explainability posture, relevant for AI governance and audit requirements.
 
 ---
 
@@ -133,7 +130,7 @@ All scripts use the same injection vectors, the same protected value, and automa
 - [ ] Indirect prompt injection — injecting via external content (documents, web pages) rather than direct user input
 - [ ] Fictional framing attacks — wrapping injection attempts in creative writing to bypass pattern-based defences
 - [ ] Multi-turn injection — building context across a conversation before attempting extraction
-- [ ] Defence implementation — input sanitisation, output filtering, prompt hardening techniques
+- [ ] Defence implementation — input sanitization, output filtering, prompt hardening techniques
 - [ ] Extended model comparison — Llama3 70B, Mistral, Gemma
 
 ---
@@ -142,9 +139,9 @@ All scripts use the same injection vectors, the same protected value, and automa
 
 This work is part of a structured AI security learning path, progressing toward ISACA AAISM and Practical DevSecOps CAISP certifications. It maps to the following frameworks:
 
-- **OWASP LLM Top 10 (2025)** — LLM01: Prompt Injection
-- **MITRE ATLAS** — AML.T0051: LLM Prompt Injection
-- **NIST AI RMF** — Measure and Manage functions
+**OWASP LLM Top 10 (2025)** — LLM01: Prompt Injection
+ **MITRE ATLAS** — AML.T0051: LLM Prompt Injection
+ **NIST AI RMF** — Measure and Manage functions
 
 ---
 
